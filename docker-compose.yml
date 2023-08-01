@@ -1,0 +1,10 @@
+version: "3.5"
+
+services:
+  bridge:
+    build:
+      context: .
+    volumes:
+      - ./:/app
+    working_dir: /app
+    tty: true
