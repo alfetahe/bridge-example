@@ -22,7 +22,13 @@ public class Main {
             c.start();
         }
 
-        // Keep the program running indefinitely.
-        while (true) {}
+        // Wait indefinitely until a termination signal is received.
+        synchronized (main) {
+            try {
+                main.wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 }
